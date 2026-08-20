@@ -17,6 +17,11 @@ Each line in `anchors.log`:
   the hash covers the record; the engine field just dates the publisher.
 - a line ending `(anchored <date>, late)` was published after its night —
   late anchors say so; gaps are disclosed, never backfilled silently.
+- chain-block versions: v1 nights (through 2026-08-20) hashed the decision
+  `reason` field, which the system legitimately rewrites at resolution —
+  those nights rest on these anchors + the signed emails; v2 nights (after)
+  exclude `reason` and additionally attest the frozen test configuration
+  (configHash), and recompute cleanly from the database forever.
 
 This file is append-only (branch protection blocks force-push and
 deletion). GitHub's commit timestamps are the independent clock: an anchor
